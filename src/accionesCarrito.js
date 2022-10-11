@@ -7,6 +7,9 @@ let carrito = [];
 //con el metodo find buscamos validar si es que tenemos un producto repetido
 const validarProductoRepetido = (productoId) => {
 
+//operador logico and.
+    // localStorage.getItem('carrito')&& carrito==obtenerCarritoStorage();
+
     if (localStorage.getItem('carrito')){
         carrito = obtenerCarritoStorage();
     }
@@ -16,7 +19,7 @@ const validarProductoRepetido = (productoId) => {
 
 //si el producto esta repetido sumamos en cantidad y luego la modificamos en el DOM.
     if(productoRepetido) {
-        productoRepetido.cantidad++;
+        productoRepetido.cantidad+=1;
         const cantidadProducto = document.getElementById(`cantidad${productoRepetido.id}`);
         cantidadProducto.innerText = `cantidad: ${productoRepetido.cantidad}`;
         actualizarTotalesCarrito(carrito);
