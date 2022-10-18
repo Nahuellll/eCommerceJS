@@ -1,8 +1,12 @@
 import { validarProductoRepetido } from "./src/accionesCarrito.js";
+import { obtenerProductos } from "./src/obtenerProductos.js";
 
-//funcion que recibe un array de productos por parametro para mostrarlos en el DOM.
-const mostrarProductos = (productos) => {
+//funcion asincrona
+const mostrarProductos = async () => {
   const contenedorProductos = document.getElementById("producto-contenedor");
+
+//obtenemos los productos que retorna data .
+  const productos = await obtenerProductos();
 
   //recorremos el array y mostramos uno por uno los productos
   productos.forEach(producto => {
