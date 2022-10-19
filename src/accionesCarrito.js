@@ -1,6 +1,7 @@
 import { actualizarTotalesCarrito } from './actualizarCarrito.js';
-import { productos } from './stock.js';
 import { obtenerCarritoStorage } from './localStorage.js';
+import { obtenerProductos } from './obtenerProductos.js';
+
 
 let carrito = [];
 
@@ -28,9 +29,10 @@ const validarProductoRepetido = (productoId) => {
     }
 };
 
-//funcion que pushea los productos a nuestro array de objetos carrito.
-const agregarAlCarrito = (productoId) => {
+// obtenemos los datos y mediante find obtenemos el producto que sumaremos al carrito con un push.
+const agregarAlCarrito = async (productoId) => {
     const contenedor = document.getElementById('carrito-contenedor');
+    const productos = await obtenerProductos();
     const producto = productos.find(producto => producto.id === productoId);
     carrito.push(producto);
 
