@@ -8,8 +8,6 @@ let carrito = [];
 //con el metodo find buscamos validar si es que tenemos un producto repetido
 const validarProductoRepetido = (productoId) => {
 
-//operador logico and.
-    // localStorage.getItem('carrito')&& carrito==obtenerCarritoStorage();
 
     if (localStorage.getItem('carrito')){
         carrito = obtenerCarritoStorage();
@@ -73,5 +71,14 @@ const eliminarProductos = (productoId) => {
     actualizarTotalesCarrito(carritoActualizado);
     pintarCarrito(carritoActualizado);
 };
-
+//escuchamos el boton comprar y validamos que no este vacio para avanzar.
+const comprar = document.getElementById('hacerPedido');
+comprar.addEventListener('click', () =>{
+    const carrito = obtenerCarritoStorage();
+    carrito.length === 0 ? Swal.fire({
+        title: 'No hay ningun producto en el carrito!',
+        icon: 'warning',
+    }
+) :location.href='pedido.html'
+})
 export { agregarAlCarrito, validarProductoRepetido, pintarCarrito, eliminarProductos };
