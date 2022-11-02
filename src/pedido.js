@@ -1,13 +1,26 @@
 import { borrarStorage, obtenerCarritoStorage } from "./localStorage.js";
 
+const validarFormulario = document.getElementById('checkout-form');
+const validarNombre = document.getElementById('firstName');
+const validarApellido = document.getElementById('lastName');
+const validarEmail = document.getElementById('email');
+const btnTerminar = document.getElementById('checkout')
 
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('carrito')){
     const carrito = obtenerCarritoStorage();
     pintarPedido(carrito);
     pintarTotalPedido(carrito);
-    console.log (carrito);
 }
+
+    if(validarFormulario){
+        validarFormulario.addEventListener('submit', (e) => {
+
+            e.stopPropagation();
+
+        })
+    }
+
 })
 
 //pintamos el pedido realizado.
@@ -40,24 +53,64 @@ const pintarTotalPedido = (carrito) => {
     contenedorTotal.innerHTML = `<h2>Total:$ ${total} </h2>`
 }
 
-
-//escuchamos el boton de terminar compra, vaciamos el localStorage y nos direccionamos a la pagina final.
-// const terminarCompra = document.getElementById('checkout');
-
-// terminarCompra.addEventListener('click', (e) => {
-//     e.stopPropagation();
-//     finalizarCompra();
-// })
-
+//funcion  que nos direcciona a la pagina final de nuestra compra.
 const finalizarCompra = () => {
+    borrarStorage();
     location.href = './finalCompra.html'
 }
 
 
-
-const btn = document.getElementById('checkout')
-btn.addEventListener('click', () => {
-    borrarStorage();
-    finalizarCompra();
+//accedemos al boton finalizar para avanzar .
+btnTerminar.addEventListener('click', () => {
+    if(validarDatos() === false){
+        return;
+    }else(    setTimeout(() => {
+        finalizarCompra()
+    }, 4000) )
 })
+
+const validarDatos = () => {
+
+    if(validarNombre.value.length === 0){
+        Toastify({
+            text: "No has escrito un nombre.",
+            duration: 3000,
+            position: "center",
+            style: {
+                background: "linear-gradient(308deg, rgba(102, 16, 242, 1) 0%, rgba(144, 19, 254, 1) 50%)",
+            },
+        }).showToast();
+
+        return false;
+
+    }else if (validarApellido.value.length === 0){
+        Toastify({
+            text: "No has escrito un apellido.",
+            duration: 3000,
+            position: "center",
+            style: {
+                background: "linear-gradient(308deg, rgba(102, 16, 242, 1) 0%, rgba(144, 19, 254, 1) 50%)",
+            },
+        }).showToast();
+
+        return false;
+
+    } else if (validarEmail.value.length === 0){
+        Toastify({
+            text: "No has escrito un email.",
+            duration: 3000,
+            position: "center",
+            style: {
+                background: "linear-gradient(308deg, rgba(102, 16, 242, 1) 0%, rgba(144, 19, 254, 1) 50%)",
+            },
+        }).showToast();
+
+        return false;
+
+        } else {
+            return true;
+        }
+
+}
+
 
