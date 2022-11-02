@@ -9,4 +9,9 @@ const obtenerCarritoStorage = () => {
     return carritoStorage;
 };
 
-export { guardarCarritoStorage, obtenerCarritoStorage };
+//funcion para remover la data del localStorage.
+const borrarStorage = () => {
+    localStorage.removeItem('carrito');
+}
+
+export { guardarCarritoStorage, obtenerCarritoStorage, borrarStorage };

@@ -1,4 +1,4 @@
-import { obtenerCarritoStorage } from "./localStorage.js";
+import { borrarStorage, obtenerCarritoStorage } from "./localStorage.js";
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 })
 
-//pintamos el pedido realizado 
+//pintamos el pedido realizado.
 const pintarPedido = (carrito) => {
     const divContenedor = document.getElementById('checkout-carrito');
 
@@ -27,7 +27,7 @@ const pintarPedido = (carrito) => {
     })
 }
 
-//pintamos el total del pedido 
+//pintamos el total del pedido.
 const pintarTotalPedido = (carrito) => {
     const contenedorTotal = document.getElementById('checkout-total');
 
@@ -39,4 +39,25 @@ const pintarTotalPedido = (carrito) => {
 
     contenedorTotal.innerHTML = `<h2>Total:$ ${total} </h2>`
 }
+
+
+//escuchamos el boton de terminar compra, vaciamos el localStorage y nos direccionamos a la pagina final.
+// const terminarCompra = document.getElementById('checkout');
+
+// terminarCompra.addEventListener('click', (e) => {
+//     e.stopPropagation();
+//     finalizarCompra();
+// })
+
+const finalizarCompra = () => {
+    location.href = './finalCompra.html'
+}
+
+
+
+const btn = document.getElementById('checkout')
+btn.addEventListener('click', () => {
+    borrarStorage();
+    finalizarCompra();
+})
 
