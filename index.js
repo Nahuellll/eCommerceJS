@@ -14,13 +14,3 @@ document.addEventListener('DOMContentLoaded', () => {
         actualizarTotalesCarrito(carrito);
     } ;
 });
-
-// const comprar = document.getElementById('hacerPedido');
-// comprar.addEventListener('click', () =>{
-//     let carrito = obtenerCarritoStorage();
-//     if (carrito.length===0){
-//         console.log(carrito)
-//     } else {
-//         location.href='pedido.html'
-//     }
-// })

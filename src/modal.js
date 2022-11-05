@@ -1,4 +1,5 @@
 import { eliminarProductos } from "./accionesCarrito.js";
+import { obtenerCarritoStorage } from "./localStorage.js";
 
 const modalContenedor = document.querySelector('.modal-contenedor');
 const abreCarrito = document.getElementById('cesta-carrito');
@@ -47,7 +48,18 @@ modalCarrito.addEventListener('click', (e) => {
 
 botonesNav.addEventListener('click',()=>{
     Toastify({
-        text: "PROXIMAMENTE...",
+        text: "Proximamente...",
         duration: 3000
         }).showToast();
+})
+
+//escuchamos el boton comprar y validamos que no este vacio para avanzar.
+const comprar = document.getElementById('hacerPedido');
+comprar.addEventListener('click', () =>{
+    const carrito = obtenerCarritoStorage();
+    carrito.length === 0 ? Swal.fire({
+        title: 'No hay ningun producto en el carrito!',
+        icon: 'warning',
+    })
+    :location.href='pedido.html'
 })

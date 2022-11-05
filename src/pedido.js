@@ -6,6 +6,7 @@ const validarApellido = document.getElementById('lastName');
 const validarEmail = document.getElementById('email');
 const btnTerminar = document.getElementById('checkout')
 
+//al cargar la pagina si es que hay algo en el localstorage lo pintamos en el dom.
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('carrito')){
     const carrito = obtenerCarritoStorage();
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pintarTotalPedido(carrito);
 }
 
+//detenemos la propagacion del evento submit
     if(validarFormulario){
         validarFormulario.addEventListener('submit', (e) => {
 
@@ -53,7 +55,7 @@ const pintarTotalPedido = (carrito) => {
     contenedorTotal.innerHTML = `<h2>Total:$ ${total} </h2>`
 }
 
-//funcion  que nos direcciona a la pagina final de nuestra compra.
+//funcion  que nos direcciona a la pagina final de nuestra compra y borra el storage.
 const finalizarCompra = () => {
     borrarStorage();
     location.href = './finalCompra.html'
@@ -62,13 +64,23 @@ const finalizarCompra = () => {
 
 //accedemos al boton finalizar para avanzar .
 btnTerminar.addEventListener('click', () => {
+    Toastify({
+        text: "Enviando datos.",
+        duration: 3000,
+        position: "center",
+        style: {
+            background: "linear-gradient(308deg, rgb(241, 3, 75) 0%, rgb(128, 128, 128) 50%)",
+        },
+    }).showToast();
+
     if(validarDatos() === false){
         return;
-    }else(    setTimeout(() => {
+    }else( setTimeout(() => {
         finalizarCompra()
-    }, 4000) )
+    }, 3000) )
 })
 
+//funcion donde validamos los campos con el metodo length.
 const validarDatos = () => {
 
     if(validarNombre.value.length === 0){
@@ -77,7 +89,7 @@ const validarDatos = () => {
             duration: 3000,
             position: "center",
             style: {
-                background: "linear-gradient(308deg, rgba(102, 16, 242, 1) 0%, rgba(144, 19, 254, 1) 50%)",
+                background: "linear-gradient(308deg, rgb(241, 3, 75) 0%, rgb(128, 128, 128) 50%)",
             },
         }).showToast();
 
@@ -89,7 +101,7 @@ const validarDatos = () => {
             duration: 3000,
             position: "center",
             style: {
-                background: "linear-gradient(308deg, rgba(102, 16, 242, 1) 0%, rgba(144, 19, 254, 1) 50%)",
+                background: "linear-gradient(308deg, rgb(241, 3, 75) 0%, rgb(128, 128, 128) 50%)",
             },
         }).showToast();
 
@@ -101,7 +113,7 @@ const validarDatos = () => {
             duration: 3000,
             position: "center",
             style: {
-                background: "linear-gradient(308deg, rgba(102, 16, 242, 1) 0%, rgba(144, 19, 254, 1) 50%)",
+                background: "linear-gradient(308deg, rgb(241, 3, 75) 0%, rgb(128, 128, 128) 50%)",
             },
         }).showToast();
 

@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: grey;
+  background-color: white;
 }
 
 img {
@@ -21,9 +21,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 10%;
-  /* box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px; */
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
-  /* margin-bottom: 20px; */
+  background-color: white;
 }
 
 h1 {
@@ -34,9 +32,15 @@ h1 {
   margin: 0;
 }
 
+
+.bgLigth{
+  background-color: white;
+
+}
+
 #cesta-carrito {
   border: none;
-  color: rgb(177, 5, 211);
+  color: rgb(241, 3, 75);
   font-size: 30px;
   font-family: thin italic;
   background-color: white;
@@ -48,7 +52,7 @@ h1 {
 #cesta-carrito:hover {
   cursor: pointer;
   color: white;
-  background-color: rgb(177, 5, 211);
+  background-color:rgb(241, 3, 75);
 }
 
 #cesta-carrito:focus {
@@ -113,7 +117,7 @@ p {
 }
 
 .modal-carrito h3 {
-  color: rgb(177, 5, 211);
+  color: rgb(241, 3, 75);
   padding-bottom: 5px;
 }
 
@@ -122,7 +126,7 @@ p {
   top: 15px;
   right: 15px;
   font-size: 20px;
-  color: rgb(177, 5, 211) !important;
+  color: rgb(241, 3, 75) !important;
   border: none;
   background-color: white;
 }
@@ -140,12 +144,12 @@ p {
 }
 
 .card .card-image .card-title {
-  color: white;
+  color: rgb(241, 3, 75);
   position: unset
 }
 
 .productoEnCarrito {
-  border-left: 5px solid lightblue;
+  border-left: 5px solid rgb(128, 128, 128);
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px;
   margin: 5px 0;
@@ -155,12 +159,12 @@ p {
 }
 
 .productoEnCarrito:hover {
-  border-left: 5px solid rgb(177, 5, 211);
+  border-left: 5px solid rgb(241, 3, 75);
 }
 
 .boton-eliminar {
   background-color: white;
-  color:rgb(177, 5, 211);
+  color:rgb(241, 3, 75);
   border: none;
   font-size: 20px;
 }
@@ -174,15 +178,28 @@ p {
 }
 
 .material-icons{
-  background-color: rgb(177, 5, 211);;
+  background-color:rgb(241, 3, 75);
 }
 
 .container-fluid{
-  background-color: grey;
+  background-color: white;
 
 }
 
 .linkVolver{
   margin-left: 55rem;
-  background-color: grey;
+  background-color: white;
+}
+
+/* MODAL */
+
+.btn-primary {
+  background-color: rgb(241, 3, 75);
+}
+
+
+/* PAGINA FINAL */
+
+.divMensaje{
+  background-color: gray;
 }

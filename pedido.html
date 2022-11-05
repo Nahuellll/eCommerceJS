@@ -4,72 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-      <!--CDN toastify-->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <title>Checkout pedido</title>
+    <!--CDN toastify-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <!-- CDN bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/styles.css">
-
 </head>
+
 <body>
 
-    <!-- navbar de bootstrap -->
-        <header>
-            <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="http://127.0.0.1:5500/index.html">eCommerce</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<!-- navbar de bootstrap -->
+<header>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="http://127.0.0.1:5500/index.html">eCommerce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Contacto</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Ofertas</a>
+                </li>
                     <a href="http://127.0.0.1:5500/index.html" class="linkVolver">Volver</a>
                 </ul>
             </div>
         </div>
-        </nav>
-        </header>
-        <main>
-            <div class="container-fluid">
-                <div class="row m4">
-    
-                    <div class="col-md-7 p-5">
-                        <h4 class="mb-3">Completa tus datos para enviarte los datos de pago a tu email:</h4>
-                        <form id="checkout-form" class="needs-validation" novalidate="">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="firstName">Nombre</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="" value=""
-                                        required="">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="lastName">Apellido</label>
-                                    <input type="text" class="form-control" id="lastName" placeholder="" value=""
-                                        required="">
-                                </div>
+    </nav>
+</header>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row m4">
+                <div class="col-md-7 p-5">
+                    <h2 class="mb-3">Completa con tus datos para finalizar el pedido</h2>
+                    <form id="checkout-form" class="needs-validation" novalidate="">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName">Nombre</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
                             </div>
-    
-                            <div class="mb-3">
-                                <label for="email">Email <span class="text-muted"> </span></label>
-                                <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com"
-                                    required="">
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName">Apellido</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
                             </div>
-                            </form>
-                        <button id="checkout" class="btn btn-primary btn-lg btn-block colorBgBtn" type="submit">Terminar compra</button>
-                        
-                    </div>
-                    <div class="col-md-4 p-5">
-                        <h2>Tu carrito</h2>
-                        <div class="border p-4">
-                            <div id="checkout-carrito"></div>
-                            <div id="checkout-total"></div>
                         </div>
-        </main>
+                        <div class="mb-3">
+                            <label for="email">Email <span class="text-muted"> </span></label>
+                            <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com" required="">
+                        </div>
+                    </form>
+                    <button id="checkout" class="btn btn-primary btn-lg btn-block colorBgBtn" type="submit">Finalizar compra</button>
+                </div>
+                <div class="col-md-4 p-5">
+                    <h2>Tu carrito</h2>
+                    <div class="border p-4">
+                        <div id="checkout-carrito">
+                        </div>
+                        <div id="checkout-total">
+                        </div>
+                    </div>
+                </div>
+    </main>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <script src="src/pedido.js" type="module"></script>

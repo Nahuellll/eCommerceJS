@@ -1,3 +1,4 @@
+//obtenemos los productos mediante fetch de forma asincrona.
 const obtenerProductos = async () => {
     try {
         const response = await fetch('./src/data/stockProductos.json');
